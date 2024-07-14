@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHE SHARE VACATION RENTALS</title>
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+  
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  
+	  <link rel="icon" type="image/x-icon" href="i6.jpg">
+</head>
+<style>
+/* Importing Google font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+	
+ 
+body {
+    height: 100vh;
+    width: 100%;
+	
+	justify-content: center;
+  align-items: center;
+	
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 0 10px;
+	background-color:#EAECEB ;
+}
+
+.navbar {
+    display: flex;
+    padding: 22px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+	
+}
+
+.navbar .hamburger-btn {
+    display: none;
+    color:  #1C9A90;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar .logo img {
+    width: 70px;
+    border-radius: 50%;
+}
+
+.navbar .logo h2 {
+    color:  #1C9A90;
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+.top-left {
+  position: absolute;
+  top: 40%;
+  left: 16px;
+}
+.top{
+position:absolute;
+top:60%;
+left:10%;}
+
+a.button {
+    margin: 20px;
+    font-size: 20px;
+	padding:10px;
+	 color:white ;
+    background-color:#1C9A90; 
+	border-radius: 25px;
+	text-decoration: none;
+}
+
+
+.navbar .links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.navbar .links a {
+    color: #1C9A90;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.1s ease;
+}
+
+.navbar .links a:hover {
+    color: white;
+	 background-color: #1C9A90;
+}
+
+.navbar .login-btn {
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #275360;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.navbar .login-btn:hover {
+    background: #1C9A90;
+	color:white;
+}
+
+.form-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    max-width: 720px;
+    background: #fff;
+    border: 2px solid #fff;
+    transform: translate(-50%, -70%);
+}
+
+.show-popup .form-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.1s;
+}
+
+.form-popup .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+
+.blur-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: 0.1s ease;
+}
+
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-popup .form-box {
+    display: flex;
+}
+
+.form-box .form-details {
+    width: 100%;
+    color: #fff;
+    max-width: 330px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login .form-details {
+    padding: 0 40px;
+    background: url("img/i7.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.signup .form-details {
+    padding: 0 20px;
+    background: url("img/i7.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.form-box .form-content {
+    width: 100%;
+    padding: 35px;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-field input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    border: 1px solid  #1C9A90;
+    border-radius: 3px;
+}
+
+.input-field input:focus {
+    border: 1px solid  #1C9A90;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color:  #1C9A90;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    padding: 16px 15px 0;
+}
+
+.input-field input:is(:focus, :valid)~label {
+    transform: translateY(-120%);
+    color:  #1C9A90;
+    font-size: 0.75rem;
+}
+
+.form-box a {
+    color:  #1C9A90;
+    text-decoration: none;
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+}
+
+form :where(.forgot-pass-link, .policy-text) {
+    display: inline-flex;
+    margin-top: 13px;
+    font-size: 0.95rem;
+}
+
+form button {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 25px 0;
+    background:  #1C9A90;
+    transition: 0.2s ease;
+}
+
+form button:hover {
+    background: #0097a7;
+}
+
+.form-content .bottom-link {
+    text-align: center;
+}
+
+.form-popup .signup,
+.form-popup.show-signup .login {
+    display: none;
+}
+
+.form-popup.show-signup .signup {
+    display: flex;
+}
+
+.signup .policy-text {
+    display: flex;
+    margin-top: 14px;
+    align-items: center;
+}
+
+.signup .policy-text input {
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+}
+
+@media (max-width: 950px) {
+    .navbar :is(.hamburger-btn, .close-btn) {
+        display: block;
+    }
+
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .navbar .logo img {
+        display: none;
+    }
+
+    .navbar .logo h2 {
+        font-size: 1.4rem;
+    }
+
+    .navbar .links {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        left: -100%;
+        display: block;
+        height: 100vh;
+        width: 100%;
+        padding-top: 60px;
+        text-align: center;
+        background: #fff;
+        transition: 0.2s ease;
+    }
+
+    .navbar .links.show-menu {
+        left: 0;
+    }
+
+    .navbar .links a {
+        display: inline-flex;
+        margin: 20px 0;
+        font-size: 1.2rem;
+        color: #000;
+    }
+
+    .navbar .links a:hover {
+        color: #00BCD4;
+    }
+
+    .navbar .login-btn {
+        font-size: 0.9rem;
+        padding: 7px 10px;
+    }
+}
+
+@media (max-width: 760px) {
+    .form-popup {
+        width: 95%;
+    }
+
+    .form-box .form-details {
+        display: none;
+    }
+
+    .form-box .form-content {
+        padding: 30px 20px;
+    }
+}
+.card {
+  flex-direction: row;
+  max-width: 30em;
+  border: 0;
+  background-color: #696969;
+  color: #fff;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
+ margin-top: 100px;
+  /* Adjust this value as needed */
+}
+.card img {
+  max-width: 25%;
+  margin: auto;
+  padding: 0.5em;
+  border-radius: 0.7em;
+}
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.text-section {
+  max-width: 60%;
+}
+.cta-section {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cta-section .btn {
+  padding: 0.2em 0.5em;
+  font-size: 1em;
+  color: #696969;
+}
+.card-text {
+  letter-spacing: 0.1em;
+}
+.card.dark:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card.dark:hover .card-text {
+  color: #fff;
+}
+
+.card.dark:hover .btn {
+  background-color: #1C9A90;
+  color: #fff;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.card.dark {
+  animation: slideInFromLeft 0.75s ease-in-out;
+}
+footer a{
+text-decoration: none;
+}
+footer a:hover {
+    text-decoration: none;
+    color: #ffc107; /* Change to the desired hover color */
+  }
+
+  /* Change background color for the footer */
+  footer {
+    background-color: #1C9A90; /* Change to the desired background color */
+  }
+   @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Add shaking effect for list items on hover */
+  footer ul.list-unstyled li:hover {
+    animation: shake 0.5s ease; /* Adjust the animation duration and timing function as needed */
+  }
+  
+ .container.kk {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media query for screens smaller than 600px (typical mobile phones) */
+@media only screen and (max-width: 600px) {
+  .container.kk {
+    /* Adjust width and max-width for smaller screens */
+    width: 100%;
+ 
+  }
+}
+
+
+.col-xl {
+   &:hover {
+    .card {
+      filter: blur(1.5px);
+    }
+    .card1 {
+      background-size: 115% 115%;
+    }
+    .card2 {
+      background-size: 115% 115%;
+    }
+    .card3 {
+      background-size: 155% 115%;
+    }
+	.card4{
+      background-size: 155% 115%;
+    }
+	.card5 {
+      background-size: 155% 115%;
+    }
+	.card6 {
+      background-size: 155% 115%;
+    }
+	.card7 {
+      background-size: 155% 115%;
+    }
+	.card8 {
+      background-size: 155% 115%;
+    }
+	.card9 {
+      background-size: 155% 115%;
+    }
+	.card10 {
+      background-size: 155% 115%;
+    }.card1 {
+      background-size: 155% 115%;
+    }.card12 {
+      background-size: 155% 115%;
+    }
+	.card13 {
+      background-size: 155% 115%;
+    }
+	.card14 {
+      background-size: 155% 115%;
+    }
+	.card115 {
+      background-size: 155% 115%;
+    }
+	.card16 {
+      background-size: 155% 115%;
+    }
+	.card17 {
+      background-size: 155% 115%;
+    }
+	.card18 {
+      background-size: 155% 115%;
+    }
+	.card19 {
+      background-size: 155% 115%;
+    }
+	.card20 {
+      background-size: 155% 115%;
+    }
+    .title {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .border {
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+    .slide {
+      bottom: 0px;
+    }
+    
+  }
+}
+.ring,
+.card,
+.border,
+.slide,
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring {
+  color: #fffbf1;
+  font-size: 170px;
+}
+.cards {
+  background: #f0ead6;
+  position: relative;
+  transition: all 1s;
+  height: 270px;
+  width: 190px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+.card1 {
+  background-image: url("https://assets.codepen.io/489403/brazil.jpg");
+  background-repeat: no-repeat;
+  background-size: 200% 120%;
+}
+.card2 {
+  background-image: url("https://assets.codepen.io/489403/belize.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card3 {
+  background-image: url("https://assets.codepen.io/489403/egypt.jpg");
+  background-repeat: no-repeat;
+  background-size: 140% 100%;
+}
+.card4 {
+  background-image: url("https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcTfd_vOa29DU0mLgNi64CfwgCYXvkGJ_xaSk4rp9TJ6dewMYVoYyQOs7rY-b5d9Qlry");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card5 {
+  background-image: url("https://voyagefox.net/wp-content/uploads/2022/08/Prague-things-to-do-charles-bridge-photo-spot.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card6 {
+  background-image: url("https://images1.wionews.com/images/wion/900x1600/2024/3/6/1709714566358_55af7cfccb468144dc0ce3a6428bda71.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card7 {
+  background-image: url("https://www.ourescapeclause.com/wp-content/uploads/2020/04/shutterstock_2285987169-614x900.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card8 {
+  background-image: url("img/i13.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}.card9 {
+  background-image: url("img/i14.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card10 {
+  background-image: url("img/i15.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card11 {
+  background-image: url("img/f.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card12 {
+  background-image: url("img/f1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card13 {
+  background-image: url("f2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card14 {
+  background-image: url("img/f3.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}.card15 {
+  background-image: url("img/f4.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}.card16 {
+  background-image: url("img/f5.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card17 {
+  background-image: url("img/f6.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card18 {
+  background-image: url("img/f7.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card19 {
+  background-image: url("img/f8.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.card20 {
+  background-image: url("img/f9.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.ring:before,
+.ring:after {
+  content: "";
+  padding: 0.7em 0.4em;
+  position: absolute;
+  left: 50%;
+  width: 115%;
+  top: 50%;
+  display: block;
+
+  transition: transform 1s;
+  transform: translateX(-50%) translateY(-50%) rotate(50deg);
+}
+.ring:before {
+  border-color: rgb(235, 235, 235) rgb(235, 235, 235) rgba(0, 0, 0, 0)
+    rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+.ring:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(235, 235, 235)
+    rgb(235, 235, 235);
+}
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  transition: all 1s;
+  top: 0;
+}
+.para {
+  bottom: 0;
+  font-size: 16px;
+  font-family: "Raleway";
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+.border {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 260px;
+  width: 180px;
+  transition: border 1s;
+  overflow: hidden;
+}
+.slide {
+  height: 260px;
+  width: 180px;
+  position: absolute;
+  border: 1px solid black;
+  bottom: -270px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: bottom 1s;
+  flex-direction: column;
+}
+.fa-plane {
+  font-size: 16px;
+}
+.parallax {
+  /* The image used */
+  background-image: url('img/i12.jpg');
+  /* Full height */
+  height: 75%; 
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Calendar Styles */
+table {
+  width: 33%; /* Set the calendar to be one-third of the row width */
+  margin: auto; /* Center the calendar horizontally */
+  border-collapse: collapse; /* Collapse the border between cells */ 
+}
+th, td {
+  padding: 10px; /* Add padding to cells */
+  text-align: center; /* Center-align content in cells */
+  border: 1px solid #ccc; /* Add borders to cells */
+}
+thead {
+  background-color: #1C9A90; /* Light gray background for thead */
+}
+tbody {
+  background-color: #fff; /* White background for tbody */
+}
+/* Apply specific styles to the header cells */
+th {
+  font-weight: bold;
+  color: #333;
+}
+/* Apply specific styles to the cells containing dates */
+td {
+  color: #666;
+}
+/* Apply styles to the cells containing the days of the week */
+td:first-child {
+  color: #000;
+  font-weight: bold;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.rental-info-container, .profile-container {
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+h2 {
+  text-align: center;
+}
+label {
+  font-weight: bold;
+}
+input[type="text"], input[type="number"], input[type="email"], textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.cardw {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  color: #1C9A90;
+}
+h3 {
+  margin-top: 0;
+  color : white;
+}
+button {
+  background-color: #1C9A90;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+}
+
+button:hover {
+  background-color: #09b1bd;
+}
+.top-right {
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  right:5%;
+  margin-top: 90px;
+}
+.g{
+ margin-top: 100px;}
+.g {
+            position: relative;
+            text-align: center;
+        }
+        .top-right {
+            position: absolute;
+            top: 2%;
+            right: 5%;
+            left: 55%; /* Adjust the left and right spacing */
+            font-family: Roboto;
+            font-size: 26px;
+            text-align: justify;
+            color: white; /* Ensure text is readable on the image */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        /* Responsive styles */
+        @media screen and (max-width: 1200px) {
+            .top-right {
+                font-size: 12px; /* Adjust font size for smaller screens */
+                padding: 5px; /* Adjust padding for smaller screens */
+            }
+        }	
+        .fa {
+  padding: 10px;
+  font-size: 15px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
+            <a href="#" class="logo">
+                <img src="img/i6.jpg" alt="logo">
+                <h2>SHE SHARE VACATION RENTALS</h2>
+            </a>
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+              </ul>
+              <button  onclick="document.location='l.html'">Home</button>
+              <button  onclick="document.location='rental.html'">Share</button>
+              <button  onclick="document.location='rent.html'">Rent</button>
+            <button class="login-btn">LOG IN</button>			
+        </nav>    </header>  
+    <div class="blur-bg-overlay"></div>
+    <div class="form-popup">
+        <span class="close-btn material-symbols-rounded">close</span>
+        <div class="form-box login">
+            <div class="form-details">
+                <h2>Welcome Back</h2>
+                <p>Please log in using your personal information to stay connected with us.</p>
+            </div>
+            <div class="form-content">
+                <h2>LOGIN</h2>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <a href="#" class="forgot-pass-link">Forgot password?</a>
+                    <button type="submit">Log In</button>
+                </form>
+                <div class="bottom-link">
+                    Don't have an account?
+                    <a href="#" id="signup-link">Signup</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-box signup">
+            <div class="form-details">
+                <h2>Create Account</h2>
+                <p>To become a part of our community, please sign up using your personal information.</p>
+            </div>
+            <div class="form-content">
+                <h2>SIGNUP</h2>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Enter your email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Create password</label>
+                    </div>
+                    <div class="policy-text">
+                        <input type="checkbox" id="policy">
+                        <label for="policy">
+                            I agree the
+                            <a href="#" class="option">Terms & Conditions</a>
+                        </label>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="bottom-link">
+                    Already have an account? 
+                    <a href="#" id="login-link">Login</a>
+                </div>
+            </div>
+        </div></div>
+		<div class="g">
+		<img src="img/i20.jpg" alt="Snow" style="width:100%;">
+		<div class="top-right" style="font-family: Roboto;text-align: justify;"><b>Welcome to our She Share Vacation Rentals, fostering safety, community, and empowerment. Join us for memorable experiences among like-minded travelers.</b></div>
+		</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card dark">
+                <img src="img/i2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="text-section">
+                        <h5 class="card-title fw-bold">Share Your Room</h5>
+                        <p class="card-text">Sharing is about more than splitting rent; it's about sharing memories.</p>
+                    </div>
+                    <div class="cta-section">
+                        <a href="rental.html" class="btn btn-light">Share</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card dark">
+                <img src="img/i3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="text-section">
+                        <h5 class="card-title fw-bold">Rent A Room</h5>
+                        <p class="card-text">Renting a room: a space to call your own within a shared journey.</p>
+                    </div>
+                    <div class="cta-section">
+                        <a href="rent.html" class="btn btn-light">Rent</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br><br><br>
+<div class="parallax"><br><br><br><br>
+ <h2 align="center" style="color:  white;">
+       <b> Way to Create Your Profile!!</b>
+    </h2>
+    <br> 
+	<div class="cardw">
+    <h3>Profile Card</h3>
+    <p style="color:white;">Click below to create your profile:</p>
+    <button onclick="redirectToProfilePage()">Create Profile</button>
+  </div></div>
+  <script>
+    function redirectToProfilePage() {
+      window.location.href = "profile.html";
+    }
+  </script><br><br><br>
+<h2 align="center" style="color:  #1C9A90;">
+        Explore Cities
+    </h2><br><br>
+<div class="container kk">
+<div class="row">
+  <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card1"></div>
+      <div class="border">
+        <p class="title">Brazil</p>
+        <div class="slide">
+           <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div>
+<div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card2"></div>
+      <div class="border">
+        <p class="title">Belize</p>
+        <div class="slide">
+           <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div>  
+ <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card3"></div>
+      <div class="border">
+        <p class="title">Egypt</p>
+        <div class="slide">
+           <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div> 
+   <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card4"></div>
+      <div class="border">
+        <p class="title">Cape Town</p>
+        <div class="slide">
+          <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div>
+  <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card5"></div>
+      <div class="border">
+        <p class="title">Prague</p>
+        <div class="slide">
+           <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div></div>
+  <div class="row">
+   <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card6"></div>
+      <div class="border">
+        <p class="title">Paris</p>
+        <div class="slide">
+          <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div> 
+  <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card7"></div>
+      <div class="border">
+        <p class="title">San Francisco</p>
+        <div class="slide">
+          <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div> 
+ <div class="col-xl">
+   <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card8"></div>
+      <div class="border">
+        <p class="title">Venice</p>
+        <div class="slide">
+           <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div>
+   <div class="col-xl">
+    <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card9"></div>
+      <div class="border">
+        <p class="title">
+Kyoto</p>
+        <div class="slide">
+          <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div>  
+  <div class="col-xl">
+    <a href="room.html" class="panel-link">
+    <div class="ring">
+      <div class="cards card10"></div>
+      <div class="border">
+        <p class="title">New York</p>
+        <div class="slide">
+           <h6 class="para"><b>Explore</b></h6>
+        </div>
+      </div>
+    </div></a>
+  </div></div>  
+ 
+  </div>
+
+
+
+
+<div class="container-fluid my-5">
+
+  <footer class="text-center text-lg-start text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row mt-4">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h4 class="text-uppercase">SHE SHARE</h4>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">About Us</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Careers</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Contact Us</a>
+            </li>
+			            <li>
+              <a href="#!" class="text-white">Follow Us</a><br>
+              <a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-google"></a>
+<a href="#" class="fa fa-linkedin"></a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h4 class="text-uppercase">Support</h4>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-white">FAQs</a>
+            </li>
+            
+            <li>
+              <a href="#!" class="text-white">Cancellation policy</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h4 class="text-uppercase">Become a Host</h4>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-white">Hosting Resource</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Hosting Responsibility</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Share a Room</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Pets</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.791756628932!2d78.04587737409129!3d11.054233854009968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa2c5940c36779%3A0x638aea1962e8ae96!2sM.Kumarasamy%20College%20of%20Engineering%2C%20Autonomous%20(Accredited%20with%20A%20grade%20by%20NAAC)!5e0!3m2!1sen!2sin!4v1715855103901!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+        </div>
+            <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2024 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">SheShareVacationRentals.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+</div>
+<!-- End of .container -->
+
+	<script>
+	const navbarMenu = document.querySelector(".navbar .links");
+const hamburgerBtn = document.querySelector(".hamburger-btn");
+const hideMenuBtn = navbarMenu.querySelector(".close-btn");
+const showPopupBtn = document.querySelector(".login-btn");
+const formPopup = document.querySelector(".form-popup");
+const hidePopupBtn = formPopup.querySelector(".close-btn");
+const signupLoginLink = formPopup.querySelectorAll(".bottom-link a");
+
+// Show mobile menu
+hamburgerBtn.addEventListener("click", () => {
+    navbarMenu.classList.toggle("show-menu");
+});
+
+// Hide mobile menu
+hideMenuBtn.addEventListener("click", () =>  hamburgerBtn.click());
+
+// Show login popup
+showPopupBtn.addEventListener("click", () => {
+    document.body.classList.toggle("show-popup");
+});
+
+// Hide login popup
+hidePopupBtn.addEventListener("click", () => showPopupBtn.click());
+
+// Show or hide signup form
+signupLoginLink.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        formPopup.classList[link.id === 'signup-link' ? 'add' : 'remove']("show-signup");
+    });
+});</script>
+
+</body>
+</html>
